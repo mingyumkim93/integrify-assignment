@@ -21,9 +21,12 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
   avatar: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     marginBottom: 10,
+  },
+  userName: {
+    textAlign: "center",
   },
 });
 
@@ -34,7 +37,12 @@ function UserCard({ user }) {
     <Card className={classes.userCard}>
       <CardContent className={classes.cardSection}>
         <Avatar className={classes.avatar}>{user.name[0]}</Avatar>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="h2"
+          className={classes.userName}
+        >
           {user.name}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -48,6 +56,7 @@ function UserCard({ user }) {
           to={`user/${user.id}`}
           variant="contained"
           color="primary"
+          size="large"
         >
           More detail
         </Button>

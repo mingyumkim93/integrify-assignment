@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import Loading from "../components/Loading";
 
 const useStyles = makeStyles({
   card: {
@@ -33,7 +33,7 @@ function UserDetail() {
 
   return (
     <div>
-      {isLoading && <CircularProgress />}
+      {isLoading && <Loading />}
       {!isLoading && (
         <Container>
           <Card className={classes.card}>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CardsContainer from "../components/CardsContainer";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import Loading from "../components/Loading";
 
 function Home() {
   const [users, setUsers] = useState();
@@ -18,7 +18,7 @@ function Home() {
 
   return (
     <div>
-      {isLoading && <CircularProgress />}
+      {isLoading && <Loading />}
       {!isLoading && <CardsContainer users={users} />}
     </div>
   );
