@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 30,
+    minHeight: "100vh",
   },
 });
 

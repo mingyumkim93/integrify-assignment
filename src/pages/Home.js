@@ -1,17 +1,25 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import CardsContainer from "../components/CardsContainer";
+import UsersPreview from "../components/UsersPreview";
 import Loading from "../components/Loading";
 
 function Home() {
   const [users, setUsers] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function fetchUsers() {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-      setUsers(res.data);
-      setIsLoading(false);
+      try {
+        const res = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        setUsers(res.data);
+        setIsLoading(false);
+      } catch (err) {
+        setIsError(true);
+        setIsLoading(false);
+      }
     }
     fetchUsers();
   }, []);
@@ -19,7 +27,8 @@ function Home() {
   return (
     <div>
       {isLoading && <Loading />}
-      {!isLoading && <CardsContainer users={users} />}
+      {users && <UsersPreview users={users} />}
+      {isError && <h3>Couldn't find users</h3>}
     </div>
   );
 }

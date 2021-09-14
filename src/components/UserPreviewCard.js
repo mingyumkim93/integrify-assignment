@@ -24,13 +24,14 @@ const useStyles = makeStyles({
     width: 150,
     height: 150,
     marginBottom: 10,
+    fontSize: 50,
   },
   userName: {
     textAlign: "center",
   },
 });
 
-function UserCard({ user }) {
+function UserPreviewCard({ user }) {
   const classes = useStyles();
 
   return (
@@ -65,4 +66,4 @@ function UserCard({ user }) {
   );
 }
 
-export default UserCard;
+export default UserPreviewCard;
